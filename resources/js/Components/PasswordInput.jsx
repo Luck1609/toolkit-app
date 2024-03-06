@@ -4,7 +4,7 @@ import InputError from "./InputError";
 import { Eye, EyeSlash } from "iconsax-react";
 
 
-const iconStyle = "absolute right-2 bottom-2 text-slate-400 z-1 cursor-pointer";
+const iconStyle = "absolute right-2 bottom-3 text-slate-400 z-1 cursor-pointer";
 
 export default forwardRef(function TextInput(
   { className = "", isFocused = false, label, errors, ...props },

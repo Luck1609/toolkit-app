@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\ApiResponse;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class SmsNotification extends Model
 {
-  use HasFactory, ApiResponse;
+  use HasFactory, HasUuids;
 
   protected $guarded = [];
 

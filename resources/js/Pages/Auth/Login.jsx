@@ -9,7 +9,7 @@ import { Head, Link, useForm } from '@inertiajs/react';
 import Btn from '@/Components/Btn';
 import PasswordInput from '@/Components/PasswordInput';
 
-export default function Login({ status, canResetPassword }) {
+export default function Login({ ...users }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
@@ -28,15 +28,17 @@ export default function Login({ status, canResetPassword }) {
         post(route('login'));
     };
 
+    console.log("Available users", users)
+
     return (
       <GuestLayout className="w-full sm:max-w-sm mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
         <Head title="Log in" />
 
-        {status && (
+        {/* {status && (
           <div className="mb-4 font-medium text-sm text-green-600">
             {status}
           </div>
-        )}
+        )} */}
 
         <h4 className="text-xl font-semibold mb-5 text-center">Staff Login</h4>
 
@@ -81,7 +83,7 @@ export default function Login({ status, canResetPassword }) {
               </label>
             </div>
 
-            <div className="flex items-center justify-end mt-4">
+            {/* <div className="flex items-center justify-end mt-4">
               {canResetPassword && (
                 <Link
                   href={route("password.request")}
@@ -90,7 +92,7 @@ export default function Login({ status, canResetPassword }) {
                   Forgot your password?
                 </Link>
               )}
-            </div>
+            </div> */}
           </div>
 
           <Btn

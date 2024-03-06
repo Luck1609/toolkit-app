@@ -14,6 +14,7 @@ const SelectField = ({
   errors,
   value,
   variant = "outlined",
+  change
 }) => {
 
   const error = errors[name];
@@ -27,12 +28,11 @@ const SelectField = ({
           id={name}
           value={value}
           label={label}
+          name={name}
           error={error ? true : false}
           className={`${className}`}
+          onChange={change}
         >
-          <MenuItem value="">
-            {label}
-          </MenuItem>
           {options.map(({ value, label }, index) => {
             return (
               <MenuItem key={index.toString()} value={value ?? label}>
@@ -41,7 +41,7 @@ const SelectField = ({
             );
           })}
         </Select>
-        {error && <FormHelperText>{error.message}</FormHelperText>}
+        {error && <FormHelperText>{error}</FormHelperText>}
       </FormControl>
     </div>
   );

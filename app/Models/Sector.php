@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Sector extends Model
 {
-  use HasFactory;
+  use HasFactory, HasUuids;
 
   protected $guarded = [];
 
@@ -32,8 +33,4 @@ class Sector extends Model
     return $this->hasMany(Application::class);
   }
 
-  public function site_plans()
-  {
-    return $this->hasMany(SitePlan::class);
-  }
 }

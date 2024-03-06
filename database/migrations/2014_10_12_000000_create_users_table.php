@@ -6,33 +6,33 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->enum('role', ['Developer', 'Planning Officer', 'Technical Officer', 'Assistant Planning Officer', 'Secretary'])->default('Secretary');
-            $table->enum('title', ['Dr.', 'Eng.', 'Mr.', 'Mrs.', 'Miss'])->default('Mr.');
-            $table->string('contact')->unique();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('avatar')->nullable();
-            $table->boolean('status')->default(true);
-            $table->rememberToken();
-            $table->timestamps();
-        });
-    }
+  /**
+   * Run the migrations.
+   */
+  public function up(): void
+  {
+    Schema::create('users', function (Blueprint $table) {
+      $table->uuid('id')->primary();
+      $table->string('firstname');
+      $table->string('lastname');
+      $table->enum('role', ['Developer', 'Planning Officer', 'Technical Officer', 'Assistant Planning Officer', 'Secretary'])->default('Secretary');
+      $table->enum('title', ['Dr.', 'Eng.', 'Mr.', 'Mrs.', 'Miss'])->default('Mr.');
+      $table->string('contact')->unique();
+      $table->string('email')->unique();
+      $table->timestamp('email_verified_at')->nullable();
+      $table->string('password');
+      $table->string('avatar')->nullable();
+      $table->boolean('status')->default(true);
+      $table->rememberToken();
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('users');
-    }
+  /**
+   * Reverse the migrations.
+   */
+  public function down(): void
+  {
+    Schema::dropIfExists('users');
+  }
 };

@@ -7,14 +7,14 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
   /**
-    * Run the migrations.
-    *
-    * @return void
-    */
+   * Run the migrations.
+   *
+   * @return void
+   */
   public function up()
   {
     Schema::create('backups', function (Blueprint $table) {
-      $table->id();
+      $table->uuid('id')->primary();
       $table->string('model_name');
       $table->text('data');
       $table->boolean('updates')->default(false); // where data was updated or new entry
@@ -25,12 +25,12 @@ return new class extends Migration
   }
 
   /**
-    * Reverse the migrations.
-    *
-    * @return void
-    */
+   * Reverse the migrations.
+   *
+   * @return void
+   */
   public function down()
   {
-      Schema::dropIfExists('backups');
+    Schema::dropIfExists('backups');
   }
 };

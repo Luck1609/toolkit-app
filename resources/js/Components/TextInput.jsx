@@ -25,6 +25,7 @@ export default forwardRef(function TextInput(
           className
         }
         ref={input}
+        // onChange={change}
       />
       <InputError message={errors?.[props.name]} className="text-red-500 text-xs" />
     </div>
