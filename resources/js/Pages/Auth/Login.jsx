@@ -1,15 +1,12 @@
 import { useEffect } from 'react';
 import Checkbox from '@/Components/Checkbox';
 import GuestLayout from '@/Layouts/GuestLayout';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 import Btn from '@/Components/Btn';
 import PasswordInput from '@/Components/PasswordInput';
 
-export default function Login({ ...users }) {
+export default function Login({ status, ...users }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
@@ -28,17 +25,17 @@ export default function Login({ ...users }) {
         post(route('login'));
     };
 
-    console.log("Available users", users)
+    console.log("Available users", users, errors)
 
     return (
       <GuestLayout className="w-full sm:max-w-sm mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
         <Head title="Log in" />
 
-        {/* {status && (
+        {status && (
           <div className="mb-4 font-medium text-sm text-green-600">
             {status}
           </div>
-        )} */}
+        )}
 
         <h4 className="text-xl font-semibold mb-5 text-center">Staff Login</h4>
 
@@ -54,6 +51,7 @@ export default function Login({ ...users }) {
               label="Email"
               placeholder="Enter your email address"
               isFocused={true}
+              errors={errors}
               onChange={(e) => setData("email", e.target.value)}
             />
           </div>
@@ -66,9 +64,9 @@ export default function Login({ ...users }) {
             className="mt-1 block w-full"
             autoComplete="current-password"
             label="Password"
+            errors={errors}
             placeholder="Enter your password"
             onChange={(e) => setData("password", e.target.value)}
-            errors={errors}
           />
 
           <div className="flex items-center justify-between">

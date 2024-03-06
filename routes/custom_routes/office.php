@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Toolkit\MiscController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Toolkit\OfficeController;
@@ -13,5 +14,5 @@ use App\Http\Controllers\Toolkit\OfficeController;
 
 
   Route::get('/dashboard-stats', [OfficeController::class, 'stats']);
-  Route::get('/preflight', [OfficeController::class, 'preflight_check']);
+  Route::get('/dashboard', [MiscController::class, 'stats']);
   Route::post('/register-office', [OfficeController::class, 'store']);

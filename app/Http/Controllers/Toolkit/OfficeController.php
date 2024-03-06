@@ -34,7 +34,7 @@ class OfficeController extends Controller
     $users = User::count();
 
     if ($office > 0) {
-      if ($users > 0) return Redirect::route("login");
+      if ($users > 1) return Redirect::route("login");
       return Redirect::route("register");
     }
 
