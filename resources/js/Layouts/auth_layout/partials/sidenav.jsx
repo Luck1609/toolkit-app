@@ -22,10 +22,10 @@ const Links = [
   {
     icon: ({active}) => <TableDocument className="mr-3" variant={active ? "Bold" : "Outline"} />,
     name: "Applications",
-    url: "/applications/received-applications",
+    url: "/application",
   },
   {
-    url: "/committee-members/tsc",
+    url: "/committee-members",
     icon: ({active}) => <UserOctagon className="mr-3" variant={active ? "Bold" : "Outline"} />,
     name: "Committee",
     match: "/committee-members",

@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\ApplicationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Toolkit\ApplicationController;
 
 
-  Route::get('/applications/{category}', [ApplicationController::class, 'index']);
-  Route::apiResource('application', ApplicationController::class);
+  // Route::get('/applications/{category}', [ApplicationController::class, 'index']);
+  Route::resource('application', ApplicationController::class);

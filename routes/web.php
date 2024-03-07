@@ -42,3 +42,4 @@ Route::post('/office-registration', [OfficeController::class, "store"]);
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/custom_routes/office.php';
+require __DIR__ . '/custom_routes/applications.php';

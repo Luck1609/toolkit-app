@@ -3,6 +3,7 @@ import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import { Link } from "@inertiajs/react";
 import SideNav from "./partials/sidenav";
+import UISelect from "@/Components/UISelect";
 
 export default function AuthLayout({  header, children, data:{ auth: {user}, ...data } }) {
 
@@ -88,7 +89,10 @@ export default function AuthLayout({  header, children, data:{ auth: {user}, ...
           </header>
         )}
 
-        <main>{children}</main>
+        <main>
+          {children}
+          <UISelect />
+        </main>
       </div>
     </div>
   );
